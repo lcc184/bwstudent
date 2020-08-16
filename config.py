@@ -1,3 +1,4 @@
+# 配置数据库配置信息
 class Config:
     SECRET_KEY = "lcc"
     SQLALCHEMY_DATABASE_URI = "mysql://root:123@127.0.0.1:3306/students_1905c"  # 数据库连接URI

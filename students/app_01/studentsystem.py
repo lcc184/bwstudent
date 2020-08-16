@@ -3,7 +3,7 @@ from ..models import Student
 from .. import db
 from flask import render_template, request, redirect, url_for
 
-
+# 主页面 GET POST
 @app_1.route("/",methods=["GET"])
 def get_index():
     students = Student.query.all()
@@ -18,7 +18,6 @@ def get_index():
     else:
 
         return render_template('index.html',students=students)
-
 @app_1.route("/post_index",methods=["POST"])
 def post_index():
     id = request.form.get("id")
@@ -35,6 +34,7 @@ def post_index():
     else:
         return redirect(url_for("app_1.get_index",error1="请输入完整"))
 
+# 修改功能GET POST
 @app_1.route("/get_alter/<int:id>",methods=['GET'])
 def get_alter(id):
     student_one = Student.query.filter_by(id=id).first()
@@ -61,6 +61,7 @@ def post_alter(id):
     else:
         return redirect(url_for("app_1.get_alter", error1="请输入完整"))
 
+# 删除功能 GET
 @app_1.route("/delete/<int:id>",methods=['GET'])
 def delete(id):
     try:
@@ -71,6 +72,7 @@ def delete(id):
         return redirect(url_for("app_1.get_index",error1="无法删除，没有此数据"))
     return redirect(url_for("app_1.get_index"))
 
+# 查询功能POST（此处有bug）
 @app_1.route("/post_search",methods=["POST"])
 def post_search():
     search = request.form.get("search")
