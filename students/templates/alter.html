@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改学生系统</title>
+</head>
+<body>
+<form action="/post_alter/{{student_one.id}}" method="post">
+        <br>请输入姓名<input name="name" type="text" value="{{student_one.name}}">
+        <br>请输入英语成绩<input name="english" type="text" value="{{student_one.English}}">
+        <br>请输入python成绩<input name="python" type="text" value="{{student_one.Python}}">
+        <br>请输入从语言成绩<input name="c" type="text" value="{{student_one.C}}">
+        <br><input type="submit" value="提交">{{error1}}
+    </form>
+</body>
+</html>

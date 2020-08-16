@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理系统</title>
+</head>
+<body>
+<div>
+    <h3></h3>
+    <form action="/post_search" method="post">
+        <input type="text" name="search">
+        <input type="submit" value="搜索">
+    </form>
+
+    <table border="1" width="300">
+            <caption>学生管理系统</caption>
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>English成绩</th>
+                    <th>Python成绩</th>
+                    <th>C成绩</th>
+                    <th>总成绩</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><p >{{error}}</p></tr>
+                {% for student in students %}
+                <tr>
+
+                    <th>{{student.id}}</th>
+                    <th>{{student.name}}</th>
+                    <th>{{student.English}}</th>
+                    <th>{{student.Python}}</th>
+                    <th>{{student.C}}</th>
+                    <th>{{student.Grade_num}}</th>
+                    <th><a href="/alter/?id={{student.id}}">修改</a></th>
+                    <th><a href="/delete/?id={{student.id}}">删除</a></th>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+    <form action="/post_index" method="post">
+        <br>请输入ID<input name="id" type="text">
+        <br>请输入姓名<input name="name" type="text">
+        <br>请输入英语成绩<input name="english" type="text">
+        <br>请输入python成绩<input name="python" type="text">
+        <br>请输入从语言成绩<input name="c" type="text">
+        <br><input type="submit" value="提交">{{error1}}
+    </form>
+</div>
+</body>
+</html>
